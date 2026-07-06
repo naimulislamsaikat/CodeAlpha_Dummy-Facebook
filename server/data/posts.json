@@ -1,0 +1,125 @@
+[
+  {
+    "id": "post_1",
+    "userId": "u1",
+    "authorName": "Alice Vance",
+    "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+    "content": "Captured this beautiful scenic sunset from my balcony this evening! Nature never ceases to amaze me. 🌅✈️",
+    "mediaUrl": "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=500&fit=crop",
+    "mediaType": "image",
+    "type": "post",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [
+      "u2",
+      "u3"
+    ],
+    "sharesCount": 1,
+    "createdAt": "2026-07-06T17:11:34.609Z"
+  },
+  {
+    "id": "post_2",
+    "userId": "u2",
+    "authorName": "Bob Miller",
+    "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+    "content": "Just deployed the backend framework. Everything is operating on milliseconds speed. Let me know what you think!",
+    "mediaUrl": "",
+    "mediaType": "",
+    "type": "post",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [
+      "u1"
+    ],
+    "sharesCount": 0,
+    "createdAt": "2026-07-06T17:11:34.609Z"
+  },
+  {
+    "id": "reel_1",
+    "userId": "u3",
+    "authorName": "Sophia Green",
+    "authorAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+    "content": "Beautiful forest wildlife compilation! Check out this CGI animal loop! 🌲🦌",
+    "mediaUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "mediaType": "video",
+    "type": "reel",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [
+      "u1",
+      "u2"
+    ],
+    "sharesCount": 0,
+    "createdAt": "2026-07-06T17:11:34.610Z"
+  },
+  {
+    "id": "post_3",
+    "userId": "u1",
+    "authorName": "Vertex Design Agency",
+    "authorAvatar": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&h=150&fit=crop",
+    "content": "Check out our brand new gradient palette layout! Pure glassmorphism details. 🎨✨",
+    "mediaUrl": "https://images.unsplash.com/photo-1618005198143-e5283b519a7f?w=800&h=500&fit=crop",
+    "mediaType": "image",
+    "type": "post",
+    "isPagePost": true,
+    "pageId": "p1",
+    "likes": [
+      "u2",
+      "u3",
+      "nq91tcxc8"
+    ],
+    "sharesCount": 0,
+    "createdAt": "2026-07-06T17:11:34.610Z",
+    "updatedAt": "2026-07-06T17:47:04.952Z"
+  },
+  {
+    "id": "share_1",
+    "userId": "u3",
+    "authorName": "Sophia Green",
+    "authorAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+    "content": "shared a post",
+    "mediaUrl": "",
+    "mediaType": "",
+    "type": "post",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [],
+    "sharesCount": 1,
+    "originalPostId": "post_1",
+    "createdAt": "2026-07-06T17:11:34.611Z",
+    "updatedAt": "2026-07-06T17:34:16.167Z"
+  },
+  {
+    "id": "d0590qx5x",
+    "userId": "nq91tcxc8",
+    "authorName": "Naimul Islam",
+    "authorAvatar": "/uploads/1783359186468-nwadqk6.jpeg",
+    "content": "",
+    "mediaUrl": "/uploads/1783359230283-dukdg1a.jpeg",
+    "mediaType": "image",
+    "type": "post",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [],
+    "sharesCount": 0,
+    "originalPostId": null,
+    "createdAt": "2026-07-06T17:33:50.286Z",
+    "updatedAt": "2026-07-06T17:34:10.264Z"
+  },
+  {
+    "id": "bqoz5d621",
+    "userId": "nq91tcxc8",
+    "authorName": "Naimul Islam",
+    "authorAvatar": "/uploads/1783359186468-nwadqk6.jpeg",
+    "content": "shared a post",
+    "mediaUrl": "",
+    "mediaType": "",
+    "type": "post",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [],
+    "sharesCount": 0,
+    "originalPostId": "share_1",
+    "createdAt": "2026-07-06T17:34:16.167Z"
+  }
+]

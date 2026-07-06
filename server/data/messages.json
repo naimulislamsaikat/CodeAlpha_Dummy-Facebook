@@ -1,0 +1,18 @@
+[
+  {
+    "id": "fbhla7yz5",
+    "senderId": "u1",
+    "receiverId": "u2",
+    "content": "Hi Bob, did you look over the telemetry designs?",
+    "isRead": true,
+    "createdAt": "2026-07-06T15:11:34.611Z"
+  },
+  {
+    "id": "y9svrpey2",
+    "senderId": "u2",
+    "receiverId": "u1",
+    "content": "Hey Alice, yes, I love the glass panels. I will spin up the server code right away.",
+    "isRead": true,
+    "createdAt": "2026-07-06T16:11:34.612Z"
+  }
+]

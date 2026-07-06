@@ -1,0 +1,53 @@
+[
+  {
+    "id": "u1",
+    "name": "Alice Vance",
+    "email": "alice@social.com",
+    "password": "$2a$10$5tenDQSYzXrcXshu67g2ZeDlqTw0PZMAH9jdUb2fjKoiQU5qT/5Cq",
+    "isVerified": true,
+    "verificationCode": null,
+    "bio": "Visual designer, photographer, and open-source enthusiast. ✨",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+    "coverPhoto": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=300&fit=crop",
+    "createdAt": "2026-07-06T17:11:34.606Z"
+  },
+  {
+    "id": "u2",
+    "name": "Bob Miller",
+    "email": "bob@social.com",
+    "password": "$2a$10$5tenDQSYzXrcXshu67g2ZeDlqTw0PZMAH9jdUb2fjKoiQU5qT/5Cq",
+    "isVerified": true,
+    "verificationCode": null,
+    "bio": "Software engineer who loves building lightweight interactive web prototypes.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+    "coverPhoto": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=300&fit=crop",
+    "createdAt": "2026-07-06T17:11:34.607Z"
+  },
+  {
+    "id": "u3",
+    "name": "Sophia Green",
+    "email": "sophia@social.com",
+    "password": "$2a$10$5tenDQSYzXrcXshu67g2ZeDlqTw0PZMAH9jdUb2fjKoiQU5qT/5Cq",
+    "isVerified": true,
+    "verificationCode": null,
+    "bio": "Travel blogger & short-form video creator. Exploring the world one step at a time! 🗺️",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+    "coverPhoto": "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=300&fit=crop",
+    "createdAt": "2026-07-06T17:11:34.608Z"
+  },
+  {
+    "id": "nq91tcxc8",
+    "name": "Naimul Islam",
+    "email": "naimulislam.dev@gmail.com",
+    "password": "$2a$10$bcOj9RLPbXyrPKGVRTZj9Oq4Ld2qH0oYHbvBQCDzO/L37zr5lUOv.",
+    "isVerified": true,
+    "verificationCode": null,
+    "bio": "Hey there! I am using this social app.",
+    "avatar": "/uploads/1783359186468-nwadqk6.jpeg",
+    "coverPhoto": "",
+    "followersCount": 0,
+    "followingCount": 0,
+    "createdAt": "2026-07-06T17:24:13.543Z",
+    "updatedAt": "2026-07-06T17:33:06.472Z"
+  }
+]

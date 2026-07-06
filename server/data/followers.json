@@ -1,0 +1,20 @@
+[
+  {
+    "id": "hjicpbtwa",
+    "followerId": "u1",
+    "followedId": "u2",
+    "createdAt": "2026-07-06T17:11:34.608Z"
+  },
+  {
+    "id": "n6wfr420s",
+    "followerId": "u2",
+    "followedId": "u1",
+    "createdAt": "2026-07-06T17:11:34.608Z"
+  },
+  {
+    "id": "vay1akc4m",
+    "followerId": "u3",
+    "followedId": "u1",
+    "createdAt": "2026-07-06T17:11:34.608Z"
+  }
+]

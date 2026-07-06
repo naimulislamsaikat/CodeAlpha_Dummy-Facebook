@@ -1,0 +1,22 @@
+[
+  {
+    "id": "p1",
+    "ownerId": "u1",
+    "name": "Vertex Design Agency",
+    "category": "Creator/Blogger",
+    "description": "Premium UI/UX layout inspirations, interactive wireframes, and design system templates.\nSubscribe for high-fidelity assets!",
+    "avatar": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&h=150&fit=crop",
+    "coverPhoto": "https://images.unsplash.com/photo-1618005198143-e5283b519a7f?w=800&h=300&fit=crop",
+    "createdAt": "2026-07-06T17:11:34.608Z"
+  },
+  {
+    "id": "p2",
+    "ownerId": "u2",
+    "name": "Alpha Sports Tech",
+    "category": "Business/Company",
+    "description": "Bringing you cutting-edge telemetry, stats tracking systems, and high performance wear reviews.",
+    "avatar": "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=150&h=150&fit=crop",
+    "coverPhoto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=300&fit=crop",
+    "createdAt": "2026-07-06T17:11:34.609Z"
+  }
+]
