@@ -337,6 +337,49 @@ input:focus, textarea:focus, select:focus {
   align-items: center;
   justify-content: center;
 }
+.story-composer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  z-index: 500;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+}
+.story-composer-card {
+  width: min(100%, 520px);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  margin-top: 24px;
+}
+.story-composer-card {
+  width: min(100%, 520px);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.story-composer-preview {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+.story-emoji-btn {
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.story-emoji-btn:hover {
+  background: var(--bg-input);
+}
 
 /* Post Creator Card */
 .post-creator-card {

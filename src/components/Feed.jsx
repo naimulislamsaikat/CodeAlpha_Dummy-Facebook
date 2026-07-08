@@ -17,6 +17,30 @@ export default function Feed() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const fileInputRef = useRef(null);
 
+  const [storyComposerOpen, setStoryComposerOpen] = useState(false);
+  const [stories, setStories] = useState(() => {
+    if (typeof window === 'undefined') return [];
+    try {
+      const saved = localStorage.getItem('facebook-stories');
+      if (!saved) return [];
+      const parsed = JSON.parse(saved);
+      const now = Date.now();
+      return parsed.filter(story => story.expiresAt > now);
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  });
+  const [storyDraft, setStoryDraft] = useState({
+    text: '',
+    emoji: '',
+    song: '',
+    mediaFile: null,
+    mediaPreview: '',
+    mediaType: 'image'
+  });
+  const storyFileInputRef = useRef(null);
+
   // Load user's managed pages to let them post as a Page
   useEffect(() => {
     fetchFeedPosts();
@@ -45,6 +69,57 @@ export default function Feed() {
       setMediaPreview(reader.result);
     };
     reader.readAsDataURL(file);
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('facebook-stories', JSON.stringify(stories));
+    }
+  }, [stories]);
+
+  const handleStoryFileChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setStoryDraft(prev => ({
+        ...prev,
+        mediaFile: file,
+        mediaPreview: reader.result,
+        mediaType: file.type.startsWith('video/') ? 'video' : 'image'
+      }));
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleStorySubmit = (e) => {
+    e.preventDefault();
+    const text = storyDraft.text.trim();
+    const emoji = storyDraft.emoji.trim();
+    const song = storyDraft.song.trim();
+
+    if (!text && !emoji && !song && !storyDraft.mediaFile) return;
+
+    const newStory = {
+      id: `story-${Date.now()}`,
+      name: user?.name || 'You',
+      avatar: user?.avatar || 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+      bg: storyDraft.mediaPreview || 'https://images.unsplash.com/photo-1494253109108-2e30c049369b?w=800&h=1400&fit=crop',
+      mediaType: storyDraft.mediaFile ? storyDraft.mediaType : 'text',
+      mediaUrl: storyDraft.mediaPreview || '',
+      caption: text,
+      emoji,
+      song,
+      createdAt: Date.now(),
+      expiresAt: Date.now() + 24 * 60 * 60 * 1000
+    };
+
+    setStories(prev => [newStory, ...prev]);
+    setStoryDraft({ text: '', emoji: '', song: '', mediaFile: null, mediaPreview: '', mediaType: 'image' });
+    setStoryComposerOpen(false);
+    setActiveStoryIndex(0);
+    if (storyFileInputRef.current) storyFileInputRef.current.value = '';
   };
 
   const handlePostSubmit = async (e) => {
@@ -94,14 +169,6 @@ export default function Feed() {
       setIsSubmitting(false);
     }
   };
-
-  // Mock Stories (premium stock aesthetics)
-  const stories = [
-    { id: 1, name: 'Alice Thorne', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop', bg: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&h=1400&fit=crop' },
-    { id: 2, name: 'Nova Agency', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop', bg: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&h=1400&fit=crop' },
-    { id: 3, name: 'James Blake', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop', bg: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&h=1400&fit=crop' },
-    { id: 4, name: 'Travel Page', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop', bg: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&h=1400&fit=crop' },
-  ];
 
   // Story Viewer State
   const [activeStoryIndex, setActiveStoryIndex] = useState(null); // null = closed
@@ -170,10 +237,92 @@ export default function Feed() {
   }, [activeStoryIndex]);
 
 
+  const activeStory = activeStoryIndex !== null ? stories[activeStoryIndex] : null;
+
   return (
     <div className="feed-container animate-fade-in">
+      {storyComposerOpen && (
+        <div className="story-composer-overlay" onClick={() => setStoryComposerOpen(false)}>
+          <div className="story-composer-card" onClick={e => e.stopPropagation()}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <div>
+                <h3 style={{ margin: 0, fontSize: '1.1rem' }}>Create a Story</h3>
+                <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Visible for 24 hours to your friends</p>
+              </div>
+              <button type="button" onClick={() => setStoryComposerOpen(false)} style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }}>
+                <X size={18} />
+              </button>
+            </div>
+
+            <form onSubmit={handleStorySubmit}>
+              <textarea
+                value={storyDraft.text}
+                onChange={(e) => setStoryDraft(prev => ({ ...prev, text: e.target.value }))}
+                placeholder="What do you want to share?"
+                rows={3}
+                style={{ width: '100%', resize: 'none', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '12px', marginBottom: '12px' }}
+              />
+
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
+                {['😊', '❤️', '✨', '🎵'].map(emoji => (
+                  <button
+                    key={emoji}
+                    type="button"
+                    className="story-emoji-btn"
+                    onClick={() => setStoryDraft(prev => ({ ...prev, emoji: prev.emoji + emoji }))}
+                  >
+                    {emoji}
+                  </button>
+                ))}
+              </div>
+
+              <input
+                value={storyDraft.song}
+                onChange={(e) => setStoryDraft(prev => ({ ...prev, song: e.target.value }))}
+                placeholder="Song or vibe (optional)"
+                style={{ width: '100%', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '10px 12px', marginBottom: '12px' }}
+              />
+
+              <input
+                ref={storyFileInputRef}
+                type="file"
+                accept="image/*,video/*"
+                onChange={handleStoryFileChange}
+                style={{ display: 'none' }}
+              />
+
+              <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                <button type="button" onClick={() => storyFileInputRef.current?.click()} className="btn-text" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Image size={16} /> Add image or video
+                </button>
+                <button type="button" onClick={() => setStoryDraft(prev => ({ ...prev, mediaFile: null, mediaPreview: '', mediaType: 'image' }))} className="btn-text">
+                  Clear media
+                </button>
+              </div>
+
+              {storyDraft.mediaPreview && (
+                <div className="story-composer-preview" style={{ marginBottom: '16px' }}>
+                  {storyDraft.mediaType === 'video' ? (
+                    <video src={storyDraft.mediaPreview} controls style={{ width: '100%', maxHeight: '220px', objectFit: 'contain', background: '#000' }} />
+                  ) : (
+                    <img src={storyDraft.mediaPreview} alt="Story preview" style={{ width: '100%', maxHeight: '220px', objectFit: 'cover' }} />
+                  )}
+                </div>
+              )}
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Share with friends for 24 hours</span>
+                <button type="submit" className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Send size={16} /> Share story
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* ===== STORY VIEWER MODAL ===== */}
-      {activeStoryIndex !== null && (
+      {activeStoryIndex !== null && activeStory && (
         <div
           style={{
             position: 'fixed',
@@ -181,9 +330,10 @@ export default function Feed() {
             background: 'rgba(0,0,0,0.92)',
             zIndex: 500,
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
-            backdropFilter: 'blur(16px)'
+            backdropFilter: 'blur(16px)',
+            paddingTop: '24px'
           }}
           onClick={closeStory}
         >
@@ -201,11 +351,21 @@ export default function Feed() {
             }}
           >
             {/* Background image */}
-            <img
-              src={stories[activeStoryIndex].bg}
-              alt="Story"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            />
+            {activeStory.mediaType === 'video' && activeStory.mediaUrl ? (
+              <video src={activeStory.mediaUrl} autoPlay muted loop style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            ) : activeStory.mediaUrl ? (
+              <img
+                src={activeStory.mediaUrl}
+                alt="Story"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            ) : (
+              <img
+                src={activeStory.bg}
+                alt="Story"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            )}
 
             {/* Dark gradient overlays */}
             <div style={{
@@ -241,8 +401,8 @@ export default function Feed() {
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <img
-                  src={stories[activeStoryIndex].avatar}
-                  alt={stories[activeStoryIndex].name}
+                  src={activeStory.avatar}
+                  alt={activeStory.name}
                   style={{
                     width: '42px', height: '42px', borderRadius: '50%',
                     border: '2px solid white', objectFit: 'cover'
@@ -250,7 +410,7 @@ export default function Feed() {
                 />
                 <div>
                   <div style={{ color: 'white', fontWeight: 700, fontSize: '0.95rem', textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>
-                    {stories[activeStoryIndex].name}
+                    {activeStory.name}
                   </div>
                   <div style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem' }}>Just now</div>
                 </div>
@@ -323,6 +483,17 @@ export default function Feed() {
               </button>
             )}
 
+            {(activeStory.caption || activeStory.emoji || activeStory.song) && (
+              <div style={{
+                position: 'absolute', left: '20px', right: '20px', bottom: '48px',
+                color: 'white', textShadow: '0 2px 10px rgba(0,0,0,0.7)', zIndex: 15
+              }}>
+                {activeStory.emoji && <div style={{ fontSize: '1.8rem', marginBottom: '8px' }}>{activeStory.emoji}</div>}
+                {activeStory.caption && <div style={{ fontSize: '1.05rem', fontWeight: 600 }}>{activeStory.caption}</div>}
+                {activeStory.song && <div style={{ marginTop: '8px', color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem' }}><Volume2 size={14} style={{ display: 'inline-block', marginRight: '6px' }} />{activeStory.song}</div>}
+              </div>
+            )}
+
             {/* Bottom story counter */}
             <div style={{
               position: 'absolute', bottom: '20px',
@@ -339,10 +510,10 @@ export default function Feed() {
       {/* Stories Bar */}
       <div className="stories-panel">
         {/* User Story Card */}
-        <div className="story-card add-story">
+        <button type="button" className="story-card add-story" onClick={() => setStoryComposerOpen(true)}>
           <div className="add-btn"><Plus size={20} /></div>
           <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Create Story</span>
-        </div>
+        </button>
         
         {/* Render Stories */}
         {stories.map((story, index) => (

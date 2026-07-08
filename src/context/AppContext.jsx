@@ -32,6 +32,7 @@ export const AppProvider = ({ children }) => {
   const wsRef = useRef(null);
   // Ref mirror of activeChatContact to avoid re-creating WS on contact change
   const activeChatContactRef = useRef(null);
+  const activeCallRef = useRef(null);
 
   // Apply dark mode class
   useEffect(() => {
@@ -46,6 +47,10 @@ export const AppProvider = ({ children }) => {
 
   // WebSocket Connection Lifecycle
   useEffect(() => {
+    activeCallRef.current = activeCall;
+  }, [activeCall]);
+
+  useEffect(() => {
     if (!token || !user) {
       if (wsRef.current) {
         wsRef.current.close();
@@ -55,10 +60,12 @@ export const AppProvider = ({ children }) => {
       return;
     }
 
-    // Connect to WebSocket server matching the current host (with proxy or direct)
+    // Connect to WebSocket server.
+    // In dev mode the frontend is served from Vite on 5173, while the backend runs on 5000.
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${protocol}//${window.location.host}`;
-    
+    const wsHost = import.meta.env.DEV ? '127.0.0.1:5000' : window.location.host;
+    const wsUrl = `${protocol}//${wsHost}`;
+
     console.log('Connecting WebSockets to:', wsUrl);
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;
@@ -66,6 +73,10 @@ export const AppProvider = ({ children }) => {
     ws.onopen = () => {
       // Authenticate socket connection
       ws.send(JSON.stringify({ type: 'auth', token }));
+    };
+
+    ws.onerror = (error) => {
+      console.error('WebSocket connection error:', error);
     };
 
     ws.onmessage = (event) => {
@@ -106,7 +117,7 @@ export const AppProvider = ({ children }) => {
         // 3. Call Signaling Signals
         if (data.type === 'call-user') {
           // If already in a call, reject automatically (busy)
-          if (activeCall) {
+          if (activeCallRef.current) {
             ws.send(JSON.stringify({
               type: 'call-rejected',
               targetId: data.fromId
