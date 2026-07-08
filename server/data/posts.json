@@ -1,102 +1,12 @@
 [
   {
-    "id": "post_1",
-    "userId": "u1",
-    "authorName": "Alice Vance",
-    "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
-    "content": "Captured this beautiful scenic sunset from my balcony this evening! Nature never ceases to amaze me. 🌅✈️",
-    "mediaUrl": "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&h=500&fit=crop",
-    "mediaType": "image",
-    "type": "post",
-    "isPagePost": false,
-    "pageId": null,
-    "likes": [
-      "u2",
-      "u3"
-    ],
-    "sharesCount": 1,
-    "createdAt": "2026-07-06T17:11:34.609Z"
-  },
-  {
-    "id": "post_2",
-    "userId": "u2",
-    "authorName": "Bob Miller",
-    "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
-    "content": "Just deployed the backend framework. Everything is operating on milliseconds speed. Let me know what you think!",
-    "mediaUrl": "",
-    "mediaType": "",
-    "type": "post",
-    "isPagePost": false,
-    "pageId": null,
-    "likes": [
-      "u1"
-    ],
-    "sharesCount": 0,
-    "createdAt": "2026-07-06T17:11:34.609Z"
-  },
-  {
-    "id": "reel_1",
-    "userId": "u3",
-    "authorName": "Sophia Green",
-    "authorAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
-    "content": "Beautiful forest wildlife compilation! Check out this CGI animal loop! 🌲🦌",
-    "mediaUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    "mediaType": "video",
-    "type": "reel",
-    "isPagePost": false,
-    "pageId": null,
-    "likes": [
-      "u1",
-      "u2"
-    ],
-    "sharesCount": 0,
-    "createdAt": "2026-07-06T17:11:34.610Z"
-  },
-  {
-    "id": "post_3",
-    "userId": "u1",
-    "authorName": "Vertex Design Agency",
-    "authorAvatar": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&h=150&fit=crop",
-    "content": "Check out our brand new gradient palette layout! Pure glassmorphism details. 🎨✨",
-    "mediaUrl": "https://images.unsplash.com/photo-1618005198143-e5283b519a7f?w=800&h=500&fit=crop",
-    "mediaType": "image",
-    "type": "post",
-    "isPagePost": true,
-    "pageId": "p1",
-    "likes": [
-      "u2",
-      "u3",
-      "nq91tcxc8"
-    ],
-    "sharesCount": 0,
-    "createdAt": "2026-07-06T17:11:34.610Z",
-    "updatedAt": "2026-07-06T17:47:04.952Z"
-  },
-  {
-    "id": "share_1",
-    "userId": "u3",
-    "authorName": "Sophia Green",
-    "authorAvatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
-    "content": "shared a post",
-    "mediaUrl": "",
-    "mediaType": "",
-    "type": "post",
-    "isPagePost": false,
-    "pageId": null,
-    "likes": [],
-    "sharesCount": 1,
-    "originalPostId": "post_1",
-    "createdAt": "2026-07-06T17:11:34.611Z",
-    "updatedAt": "2026-07-06T17:34:16.167Z"
-  },
-  {
     "id": "d0590qx5x",
     "userId": "nq91tcxc8",
     "authorName": "Naimul Islam",
     "authorAvatar": "/uploads/1783359186468-nwadqk6.jpeg",
-    "content": "",
-    "mediaUrl": "/uploads/1783359230283-dukdg1a.jpeg",
-    "mediaType": "image",
+    "content": "Hello everyone! I am setting up my profile and sharing a first update.",
+    "mediaUrl": "",
+    "mediaType": "",
     "type": "post",
     "isPagePost": false,
     "pageId": null,
@@ -107,19 +17,130 @@
     "updatedAt": "2026-07-06T17:34:10.264Z"
   },
   {
-    "id": "bqoz5d621",
+    "id": "ct2ndzdg8",
     "userId": "nq91tcxc8",
     "authorName": "Naimul Islam",
     "authorAvatar": "/uploads/1783359186468-nwadqk6.jpeg",
-    "content": "shared a post",
-    "mediaUrl": "",
-    "mediaType": "",
+    "content": "",
+    "mediaUrl": "/uploads/1783499663120-u9v8l41.jpeg",
+    "mediaType": "image",
     "type": "post",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [
+      "sipoaxdw3",
+      "84o8yehjg"
+    ],
+    "sharesCount": 0,
+    "originalPostId": null,
+    "createdAt": "2026-07-08T08:34:23.125Z",
+    "updatedAt": "2026-07-08T09:06:17.926Z"
+  },
+  {
+    "id": "29b94lfpc",
+    "userId": "sipoaxdw3",
+    "authorName": "Abhi Hawlader",
+    "authorAvatar": "/uploads/1783499836072-l0omya4.jpg",
+    "content": "",
+    "mediaUrl": "/uploads/1783499851218-vhxoem3.jpg",
+    "mediaType": "image",
+    "type": "post",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [
+      "nq91tcxc8"
+    ],
+    "sharesCount": 0,
+    "originalPostId": null,
+    "createdAt": "2026-07-08T08:37:31.232Z",
+    "updatedAt": "2026-07-08T08:40:43.916Z"
+  },
+  {
+    "id": "ux958qxsw",
+    "userId": "sipoaxdw3",
+    "authorName": "Abhi Hawlader",
+    "authorAvatar": "/uploads/1783499836072-l0omya4.jpg",
+    "content": "",
+    "mediaUrl": "/uploads/1783499984149-ovxxnb5.jpg",
+    "mediaType": "image",
+    "type": "post",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [
+      "nq91tcxc8"
+    ],
+    "sharesCount": 0,
+    "originalPostId": null,
+    "createdAt": "2026-07-08T08:39:44.151Z",
+    "updatedAt": "2026-07-08T08:40:42.167Z"
+  },
+  {
+    "id": "m3ahdaszk",
+    "userId": "sipoaxdw3",
+    "authorName": "Blogger Abhi",
+    "authorAvatar": "/uploads/1783500621654-yz6pj5h.jpg",
+    "content": "Welcome to my page. Subscribe to receive updates about my lifestyle",
+    "mediaUrl": "/uploads/1783500673199-vk9y6at.jpg",
+    "mediaType": "image",
+    "type": "post",
+    "isPagePost": true,
+    "pageId": "534kscimk",
+    "likes": [
+      "nq91tcxc8",
+      "84o8yehjg"
+    ],
+    "sharesCount": 0,
+    "originalPostId": null,
+    "createdAt": "2026-07-08T08:51:13.201Z",
+    "updatedAt": "2026-07-08T09:06:13.053Z"
+  },
+  {
+    "id": "5ixwgylb9",
+    "userId": "nq91tcxc8",
+    "authorName": "Naimul Islam",
+    "authorAvatar": "/uploads/1783359186468-nwadqk6.jpeg",
+    "content": "Fuel waiting line",
+    "mediaUrl": "/uploads/1783501103258-kvkmz5h.mp4",
+    "mediaType": "video",
+    "type": "reel",
+    "isPagePost": false,
+    "pageId": null,
+    "likes": [],
+    "sharesCount": 1,
+    "originalPostId": null,
+    "createdAt": "2026-07-08T08:58:23.283Z",
+    "updatedAt": "2026-07-08T09:06:38.395Z"
+  },
+  {
+    "id": "cdi6oy8gh",
+    "userId": "84o8yehjg",
+    "authorName": "My Derco 2",
+    "authorAvatar": "/uploads/1783501469112-edhuu0x.jpeg",
+    "content": "Hey, Subscribe to my page. Thank you",
+    "mediaUrl": "/uploads/1783501517292-vejgz63.jpeg",
+    "mediaType": "image",
+    "type": "post",
+    "isPagePost": true,
+    "pageId": "wxh25mpco",
+    "likes": [],
+    "sharesCount": 0,
+    "originalPostId": null,
+    "createdAt": "2026-07-08T09:05:17.294Z"
+  },
+  {
+    "id": "la1k67hh6",
+    "userId": "84o8yehjg",
+    "authorName": "Nazmul Islam Shifat",
+    "authorAvatar": "/uploads/1783501541718-40u6mwi.jpeg",
+    "content": "Barisal Highway",
+    "mediaUrl": "/uploads/1783501566044-xd6q55k.mp4",
+    "mediaType": "video",
+    "type": "reel",
     "isPagePost": false,
     "pageId": null,
     "likes": [],
     "sharesCount": 0,
-    "originalPostId": "share_1",
-    "createdAt": "2026-07-06T17:34:16.167Z"
+    "originalPostId": null,
+    "createdAt": "2026-07-08T09:06:06.106Z"
   }
 ]

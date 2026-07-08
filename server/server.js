@@ -659,3 +659,14 @@ server.listen(PORT, () => {
   console.log(`WebSocket Server listening on port ${PORT}`);
   console.log(`==============================================\n`);
 });
+
+// Global error handler - ensures the server always responds with valid JSON
+// even when an unexpected error occurs in route handlers.
+app.use((err, req, res, next) => {
+  console.error('Unhandled server error:', err);
+  if (!res.headersSent) {
+    res.status(500).json({ error: 'Internal server error' });
+  } else {
+    next(err);
+  }
+});

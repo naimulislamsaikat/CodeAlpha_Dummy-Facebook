@@ -19,8 +19,15 @@ export const AuthProvider = ({ children }) => {
             'Authorization': `Bearer ${token}`
           }
         });
-        if (res.ok) {
-          const data = await res.json();
+        const text = await res.text();
+        let data;
+        try {
+          data = text ? JSON.parse(text) : null;
+        } catch (e) {
+          data = null;
+        }
+
+        if (res.ok && data) {
           setUser(data);
         } else {
           // Token expired or invalid
@@ -45,12 +52,21 @@ export const AuthProvider = ({ children }) => {
       },
       body: JSON.stringify({ email, password })
     });
-    
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error(data.error || 'Login failed');
+    const text = await res.text();
+    let data;
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch (e) {
+      data = null;
     }
-    
+
+    if (!res.ok) {
+      const message = data && data.error ? data.error : text || 'Login failed';
+      throw new Error(message);
+    }
+
+    if (!data) throw new Error('Invalid server response');
+
     localStorage.setItem('token', data.token);
     setToken(data.token);
     setUser(data.user);
@@ -65,12 +81,20 @@ export const AuthProvider = ({ children }) => {
       },
       body: JSON.stringify({ name, email, password })
     });
-    
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error(data.error || 'Registration failed');
+    const text = await res.text();
+    let data;
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch (e) {
+      data = null;
     }
-    return data;
+
+    if (!res.ok) {
+      const message = data && data.error ? data.error : text || 'Registration failed';
+      throw new Error(message);
+    }
+
+    return data || { message: 'Success' };
   };
 
   const verifyCode = async (email, code) => {
@@ -81,12 +105,20 @@ export const AuthProvider = ({ children }) => {
       },
       body: JSON.stringify({ email, code })
     });
-    
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error(data.error || 'Verification failed');
+    const text = await res.text();
+    let data;
+    try {
+      data = text ? JSON.parse(text) : null;
+    } catch (e) {
+      data = null;
     }
-    return data;
+
+    if (!res.ok) {
+      const message = data && data.error ? data.error : text || 'Verification failed';
+      throw new Error(message);
+    }
+
+    return data || { message: 'Verified' };
   };
 
   const logout = () => {

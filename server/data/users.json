@@ -1,41 +1,5 @@
 [
   {
-    "id": "u1",
-    "name": "Alice Vance",
-    "email": "alice@social.com",
-    "password": "$2a$10$5tenDQSYzXrcXshu67g2ZeDlqTw0PZMAH9jdUb2fjKoiQU5qT/5Cq",
-    "isVerified": true,
-    "verificationCode": null,
-    "bio": "Visual designer, photographer, and open-source enthusiast. ✨",
-    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
-    "coverPhoto": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=300&fit=crop",
-    "createdAt": "2026-07-06T17:11:34.606Z"
-  },
-  {
-    "id": "u2",
-    "name": "Bob Miller",
-    "email": "bob@social.com",
-    "password": "$2a$10$5tenDQSYzXrcXshu67g2ZeDlqTw0PZMAH9jdUb2fjKoiQU5qT/5Cq",
-    "isVerified": true,
-    "verificationCode": null,
-    "bio": "Software engineer who loves building lightweight interactive web prototypes.",
-    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
-    "coverPhoto": "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=300&fit=crop",
-    "createdAt": "2026-07-06T17:11:34.607Z"
-  },
-  {
-    "id": "u3",
-    "name": "Sophia Green",
-    "email": "sophia@social.com",
-    "password": "$2a$10$5tenDQSYzXrcXshu67g2ZeDlqTw0PZMAH9jdUb2fjKoiQU5qT/5Cq",
-    "isVerified": true,
-    "verificationCode": null,
-    "bio": "Travel blogger & short-form video creator. Exploring the world one step at a time! 🗺️",
-    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
-    "coverPhoto": "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=300&fit=crop",
-    "createdAt": "2026-07-06T17:11:34.608Z"
-  },
-  {
     "id": "nq91tcxc8",
     "name": "Naimul Islam",
     "email": "naimulislam.dev@gmail.com",
@@ -49,5 +13,35 @@
     "followingCount": 0,
     "createdAt": "2026-07-06T17:24:13.543Z",
     "updatedAt": "2026-07-06T17:33:06.472Z"
+  },
+  {
+    "id": "sipoaxdw3",
+    "name": "Abhi Hawlader",
+    "email": "abhi@gmail.com",
+    "password": "$2a$10$Lt86Yn8a7E0CCRYd7M8LTeK7kuQv3T970zg1gAPIPeW5Yml7u5Uq2",
+    "isVerified": true,
+    "verificationCode": null,
+    "bio": "Hey there! I am using this social app.",
+    "avatar": "/uploads/1783499836072-l0omya4.jpg",
+    "coverPhoto": "/uploads/1783499962083-qpbe2m3.jpg",
+    "followersCount": 0,
+    "followingCount": 0,
+    "createdAt": "2026-07-08T08:35:07.980Z",
+    "updatedAt": "2026-07-08T08:39:22.097Z"
+  },
+  {
+    "id": "84o8yehjg",
+    "name": "Nazmul Islam Shifat",
+    "email": "nazmul@gmail.com",
+    "password": "$2a$10$fuzQIBfDMSdmYZfxah74rupby21Mm7DB4EFinfhUFJdEpXb3PZP/i",
+    "isVerified": true,
+    "verificationCode": null,
+    "bio": "Hey there! I am using this social app.",
+    "avatar": "/uploads/1783501541718-40u6mwi.jpeg",
+    "coverPhoto": "/uploads/1783501541720-coqvnvv.jpeg",
+    "followersCount": 0,
+    "followingCount": 0,
+    "createdAt": "2026-07-08T08:59:31.086Z",
+    "updatedAt": "2026-07-08T09:05:41.722Z"
   }
 ]
