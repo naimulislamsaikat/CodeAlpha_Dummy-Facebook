@@ -122,10 +122,13 @@
     "type": "post",
     "isPagePost": true,
     "pageId": "wxh25mpco",
-    "likes": [],
+    "likes": [
+      "sipoaxdw3"
+    ],
     "sharesCount": 0,
     "originalPostId": null,
-    "createdAt": "2026-07-08T09:05:17.294Z"
+    "createdAt": "2026-07-08T09:05:17.294Z",
+    "updatedAt": "2026-07-09T16:02:14.849Z"
   },
   {
     "id": "la1k67hh6",
